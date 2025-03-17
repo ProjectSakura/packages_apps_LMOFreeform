@@ -81,7 +81,7 @@ class SidebarView(
 
     @SuppressLint("ClickableViewAccessibility")
     fun showView() {
-        if (isShowing) return
+        if (isShowing || lifecycle.currentState == Lifecycle.State.DESTROYED) return
 
         initComposeView()
 
